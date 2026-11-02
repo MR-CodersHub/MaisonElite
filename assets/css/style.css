@@ -1,9 +1,13 @@
-﻿/* ============================================================
+/* ============================================================
    MAISON ELITE - Premium Tailoring Boutique Design System
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 :root {
+  --primary: #702D42;
+  --primary-dark: #531f30;
+  --primary-light: #8a3d55;
+  --primary-contrast: #ffffff;
   --burgundy: #702D42;
   --burgundy-dark: #531f30;
   --burgundy-light: #8a3d55;
@@ -27,6 +31,10 @@
   --container-max: 1320px; --navbar-height: 80px;
 }
 [data-theme="dark"] {
+  --primary: #a24864;
+  --primary-dark: #702D42;
+  --primary-light: #c58f9d;
+  --primary-contrast: #ffffff;
   --ivory: #1a1517; --ivory-dark: #221e23; --charcoal: #f0e8de; --charcoal-light: #d4c8c0;
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.3); --shadow-md: 0 4px 20px rgba(0,0,0,0.4); --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
 }
@@ -71,6 +79,38 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-serif);line-height:1.2;letter-spacing:-
 .navbar.scrolled .nav-link.active{color:var(--burgundy)}
 
 .navbar-actions{display:flex;align-items:center;gap:.75rem}
+/* ── Unified Header Controls: theme button, RTL button, CTA button ── */
+.navbar-actions .theme-toggle,
+.navbar-actions .rtl-toggle,
+.navbar-actions .btn {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  border-radius: var(--radius-md) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+.navbar-actions .theme-toggle {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  padding: 0 !important;
+}
+.navbar-actions .rtl-toggle {
+  min-width: 52px !important;
+  padding: 0 .9rem !important;
+}
+.navbar-actions .btn {
+  padding: 0 1.25rem !important;
+  font-size: .8125rem !important;
+  line-height: 1 !important;
+}
+.navbar-toggle {
+  border-radius: var(--radius-md) !important;
+}
+
 .btn-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--ivory);transition:all var(--duration-fast);background:rgba(250,246,240,0.1)}
 .navbar.scrolled .btn-icon{color:var(--charcoal);background:rgba(112,45,66,0.05)}
 .btn-icon:hover{background:rgba(112,45,66,0.15);color:var(--burgundy)}
@@ -128,7 +168,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-serif);line-height:1.2;letter-spacing:-
 .hero-title em{font-style:italic;color:var(--champagne)}
 .hero-subtitle{font-size:1.125rem;line-height:1.8;color:rgba(250,246,240,0.85);max-width:560px;margin-bottom:2.5rem;text-align:center}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:center}
-.hero-scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(250,246,240,0.6);font-size:.6875rem;letter-spacing:.15em;text-transform:uppercase;z-index:1;animation:scrollBounce 2s ease-in-out infinite}
+.hero-scroll-indicator{display:none !important;position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(250,246,240,0.6);font-size:.6875rem;letter-spacing:.15em;text-transform:uppercase;z-index:1;animation:scrollBounce 2s ease-in-out infinite}
 .scroll-wheel{width:24px;height:40px;border:1.5px solid rgba(250,246,240,0.4);border-radius:12px;display:flex;justify-content:center;padding-top:8px}
 .scroll-wheel::before{content:'';width:4px;height:8px;background:rgba(250,246,240,0.6);border-radius:2px;animation:scrollDot 2s ease-in-out infinite}
 @keyframes scrollDot{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(12px);opacity:.3}}
@@ -187,6 +227,10 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 .page-hero-subtitle{font-size:1.0625rem;color:rgba(250,246,240,0.75);max-width:560px;margin-inline:auto;line-height:1.8}
 .footer{background:var(--charcoal);color:rgba(250,246,240,0.75);padding-top:5rem}
 [data-theme="dark"] .footer{background:#0f0d0f}
+.footer-brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;margin-bottom:1rem;color:white;transition:opacity var(--duration-fast)}
+.footer-brand:hover{opacity:.9}
+.footer-brand .footer-brand-name{margin-bottom:0}
+.footer-logo-icon{width:36px;height:36px;background:var(--burgundy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .footer-brand-name{font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:white;margin-bottom:.375rem}
 .footer-brand-name span{color:var(--champagne)}
 .footer-desc{font-size:.9rem;line-height:1.8;max-width:300px;margin-bottom:1.5rem}
@@ -220,7 +264,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 .gallery-item:hover .gallery-overlay{opacity:1}
 .gallery-info-title{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:white;margin-bottom:.25rem}
 .gallery-info-tag{font-size:.75rem;color:var(--champagne);letter-spacing:.08em}
-.theme-toggle{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all var(--duration-fast);background:rgba(250,246,240,0.1);color:var(--ivory);cursor:pointer;border:none}
+.theme-toggle{width:40px;height:40px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all var(--duration-fast);background:rgba(250,246,240,0.1);color:var(--ivory);cursor:pointer;border:none}
 .navbar.scrolled .theme-toggle{background:rgba(112,45,66,0.08);color:var(--charcoal)}
 .theme-toggle:hover{background:var(--burgundy);color:white}
 .timeline{position:relative}
@@ -232,7 +276,8 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 .timeline-text{font-size:.9rem;color:var(--charcoal-light);line-height:1.7}
 .slider-controls{display:flex;gap:.5rem;align-items:center;margin-top:2rem}
 .slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(250,246,240,0.4);cursor:pointer;transition:all var(--duration-normal);border:none}
-.slider-dot.active{background:var(--champagne);width:24px;border-radius:4px}
+.slider-dot.active{background:var(--burgundy);width:24px;border-radius:4px}
+[data-theme="dark"] .slider-dot.active{background:var(--muted-rose)}
 .process-step{text-align:center;position:relative}
 .process-step-number{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--burgundy),var(--burgundy-light));color:white;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.25rem;font-weight:700;margin:0 auto 1.25rem;box-shadow:0 8px 24px rgba(112,45,66,0.25)}
 .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;visibility:hidden;transition:all var(--duration-normal)}
@@ -385,7 +430,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
    When <html dir="rtl">, whole layout mirrors automatically
    (flex/grid follow `direction`, extras below fix physical L/R)
    ═══════════════════════════════════════════════════════════ */
-.rtl-toggle{min-width:52px;height:40px;padding:0 .9rem;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:all var(--duration-fast);background:rgba(41,37,42,0.5);color:#fff;border:1px solid rgba(255,255,255,0.5);backdrop-filter:blur(8px);cursor:pointer}
+.rtl-toggle{min-width:52px;height:40px;padding:0 .9rem;border-radius:var(--radius-md);display:inline-flex;align-items:center;justify-content:center;transition:all var(--duration-fast);background:rgba(41,37,42,0.5);color:#fff;border:1px solid rgba(255,255,255,0.5);backdrop-filter:blur(8px);cursor:pointer}
 .navbar.scrolled .rtl-toggle{background:rgba(112,45,66,0.08);color:var(--charcoal);border-color:rgba(112,45,66,0.25);backdrop-filter:none}
 .rtl-toggle:hover,.rtl-toggle:focus-visible{background:var(--burgundy);border-color:var(--burgundy);color:#fff;transform:translateY(-2px);outline:none}
 .rtl-toggle .rtl-text{font-size:.75rem;font-weight:800;letter-spacing:.1em;line-height:1}
@@ -444,22 +489,24 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 [data-theme="dark"] [style*="color:var(--muted-rose)"]{color:var(--muted-rose-light) !important}
 .badge-rose{background:var(--rose-deep)}
 /* ── Eyebrow labels: burgundy (≈1.9:1 on near-black) → champagne in dark */
-[data-theme="dark"] .section-eyebrow{color:var(--champagne)}
-[data-theme="dark"] .section-eyebrow::before,[data-theme="dark"] .section-eyebrow::after{background:var(--champagne)}
+[data-theme="dark"] .section-eyebrow{color:var(--muted-rose-light)}
+[data-theme="dark"] .section-eyebrow::before,[data-theme="dark"] .section-eyebrow::after{background:var(--muted-rose)}
 /* ── Inline burgundy text (category labels, counts, ems, links, icons) → champagne in dark */
-[data-theme="dark"] [style*="color:var(--burgundy)"]{color:var(--champagne) !important}
+[data-theme="dark"] [style*="color:var(--burgundy)"]{color:var(--muted-rose-light) !important}
+[data-theme="dark"] [style*="color: var(--burgundy)"]{color:var(--muted-rose-light) !important}
 /* ── Outlined / tinted controls on dark surfaces */
-[data-theme="dark"] .btn-secondary{color:var(--champagne);border-color:var(--champagne)}
+[data-theme="dark"] .btn-secondary{color:var(--muted-rose-light);border-color:var(--muted-rose)}
+[data-theme="dark"] .btn-secondary:hover{background:var(--burgundy);color:white;border-color:var(--burgundy)}
 [data-theme="dark"] .filter-btn{border-color:rgba(217,193,154,0.35)}
 [data-theme="dark"] .service-tab.active,[data-theme="dark"] .service-tab:hover{color:var(--champagne);border-bottom-color:var(--champagne)}
 [data-theme="dark"] .service-tab .tab-count{color:var(--champagne);background:rgba(217,193,154,0.14)}
 [data-theme="dark"] .post-cat,[data-theme="dark"] .post-card:hover .post-title{color:var(--champagne)}
-[data-theme="dark"] .tag,[data-theme="dark"] .niche-tag{color:var(--champagne);background:rgba(217,193,154,0.14)}
+[data-theme="dark"] .tag,[data-theme="dark"] .niche-tag{color:var(--muted-rose-light);background:rgba(112,45,66,0.22);border:1px solid rgba(197,143,157,0.25)}
 [data-theme="dark"] .toc-link:hover{color:var(--champagne);border-left-color:var(--champagne)}
 [data-theme="dark"] .pricing-feature::before{color:var(--champagne);background:rgba(217,193,154,0.14)}
 [data-theme="dark"] .pricing-type{color:var(--muted-rose-light)}
 [data-theme="dark"] .team-role{color:var(--muted-rose-light)}
-[data-theme="dark"] .card-tag{color:var(--champagne);background:rgba(217,193,154,0.14)}
+[data-theme="dark"] .card-tag{color:var(--muted-rose-light);background:rgba(112,45,66,0.22);border:1px solid rgba(197,143,157,0.25)}
 [data-theme="dark"] .mobile-nav-close{background:rgba(217,193,154,0.12);color:var(--champagne)}
 [data-theme="dark"] .step-ind.active .step-ind-label{color:var(--champagne)}
 [data-theme="dark"] .cs-badge{color:var(--champagne);background:rgba(217,193,154,0.12);border-color:rgba(217,193,154,0.3)}
@@ -581,10 +628,10 @@ body .time-slot{border-color:rgba(112,45,66,0.35)}
 [data-theme="dark"] .navbar:not(.scrolled) .btn-icon,[data-theme="dark"] .navbar:not(.scrolled) .theme-toggle{color:#FAF6F0;background:rgba(250,246,240,0.14)}
 [data-theme="dark"] .navbar:not(.scrolled) .navbar-toggle span{background:#FAF6F0}
 /* ── Scrolled navbar chips: keep a visible chip + champagne glyph on dark bar */
-[data-theme="dark"] .navbar.scrolled .btn-icon,[data-theme="dark"] .navbar.scrolled .theme-toggle{background:rgba(217,193,154,0.14);color:var(--champagne)}
-[data-theme="dark"] .navbar.scrolled .rtl-toggle{background:rgba(217,193,154,0.14);color:var(--champagne);border-color:rgba(217,193,154,0.35)}
+[data-theme="dark"] .navbar.scrolled .btn-icon,[data-theme="dark"] .navbar.scrolled .theme-toggle{background:rgba(112,45,66,0.18);color:var(--muted-rose-light)}
+[data-theme="dark"] .navbar.scrolled .rtl-toggle{background:rgba(112,45,66,0.18);color:var(--muted-rose-light);border-color:rgba(197,143,157,0.35)}
 /* ── Scrolled link hover/active used burgundy (dark-on-dark) → champagne */
-[data-theme="dark"] .navbar.scrolled .nav-link:hover,[data-theme="dark"] .navbar.scrolled .nav-link.active{color:var(--champagne)}
+[data-theme="dark"] .navbar.scrolled .nav-link:hover,[data-theme="dark"] .navbar.scrolled .nav-link.active{color:var(--muted-rose-light)}
 [data-theme="dark"] .btn-icon:hover{color:var(--champagne);background:rgba(217,193,154,0.16)}
 /* ── 2. Default .card override pointed at a LIGHT token (charcoal-light flips
    light in dark mode) → light-on-light text. Force a true dark card. */
@@ -655,8 +702,8 @@ body .time-slot{border-color:rgba(112,45,66,0.35)}
 /* ── 2. Quote glyph on dark cards → champagne */
 [data-theme="dark"] .testimonial-card::before{color:var(--champagne);opacity:.55}
 /* ── 3. Toggle chips visible on dark pages (beats page inline styles) */
-[data-theme="dark"] .rtl-toggle{background:rgba(217,193,154,0.14) !important;color:var(--champagne) !important;border-color:rgba(217,193,154,0.35) !important}
-[data-theme="dark"] button.theme-toggle[style]{background:rgba(217,193,154,0.14) !important;color:var(--champagne) !important}
+[data-theme="dark"] .rtl-toggle{background:rgba(41,37,42,0.6) !important;color:#fff !important;border-color:rgba(197,143,157,0.4) !important}
+[data-theme="dark"] button.theme-toggle[style]{background:rgba(112,45,66,0.18) !important;color:var(--muted-rose-light) !important}
 /* ═══════════════════════════════════════════════════════════
    CONTRAST ROUND 6 — contact booking + native controls
    1. color-scheme so native controls (date picker icon, option
